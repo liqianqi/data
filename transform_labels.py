@@ -16,11 +16,11 @@ def loadDatadet(infile,k):
     f.close()
     return dataset
 
-origin_dataset_path = 'C:\\Users\\86150\\Desktop\\images-face\\train\\labels'
-output_dir_path = 'C:\\Users\\86150\\Desktop\\images-face\\train\\label1'
+origin_dataset_path = '/home/liqianqi/AI/yolov7-face/datasets/train/labels' # 改成自己的label文件夹子
+output_dir_path = '/home/liqianqi/AI/yolov7-face/datasets/train/labels'     # 改成自己的label文件夹子
 
 
-k=15
+k=20
 if not os.path.exists(output_dir_path):
     os.mkdir(output_dir_path)
 dataset = os.listdir(origin_dataset_path)
@@ -42,17 +42,16 @@ for file in dataset:
         for line in one_file_data:
             names = line[0]
             
-            kp1 = 0.5
-            kp2 = 0.5
-            kp3 = 0.5
-            kp4 = 0.5
-            kp5 = 0.5
+            kp1 = 2.0000
+            kp2 = 2.0000
+            kp3 = 2.0000
+            kp4 = 2.0000
+            kp5 = 2.0000
 
-            output.write(str(line[0]) + " " + str(line[1]) + " " + str(line[2]) + " " + str(line[3]) + " " + str(line[4]))
             #output.write(str(line[0]))
             """_summary_
-            
-            """
+            output.write(str(line[0]) + " " + str(line[1]) + " " + str(line[2]) + " " + str(line[3]) + " " + str(line[4]))
+
             output.write(" " + str(line[5]))   
             output.write(" " + str(line[6]))
             output.write(" " + str(round(kp1,6))) 
@@ -73,7 +72,27 @@ for file in dataset:
             output.write(" " + str(line[14]))
             output.write(" " + str(round(kp5,6))) 
             
+            """			
+            output.write(str(line[0]) + " " + str(line[1]) + " " + str(line[2]) + " " + str(line[3]) + " " + str(line[4]))
+            output.write(" " + str(line[5]))   
+            output.write(" " + str(line[6]))
+            output.write(" " + "2.0000") 
+
+            output.write(" " + str(line[8])) 
+            output.write(" " + str(line[9])) 
+            output.write(" " + "2.0000")
+
+            output.write(" " + str(line[11])) 
+            output.write(" " + str(line[12])) 
+            output.write(" " + "2.0000")  
+
+            output.write(" " + str(line[14])) 
+            output.write(" " + str(line[15])) 
+            output.write(" " + "2.0000") 
+
+            output.write(" " + "0.550000") 
+            output.write(" " + "0.550000") 
+            output.write(" " + "2.0000") 
 
             output.write("\n")
         output.close()
-
